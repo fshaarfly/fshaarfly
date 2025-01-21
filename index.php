@@ -66,7 +66,15 @@
             position: relative;
             display: inline-block;
             text-decoration: none;
-            padding-bottom: 10px;
+            padding-bottom: 5px;
+        }
+
+        .navbar-nav .nav-item a:hover {
+            color: #F0B33C;
+        }
+
+        .navbar-nav .nav-item a:active {
+            color: #F0B33C;
         }
 
         /* Garis bawah yang muncul di bawah link ketika aktif */
@@ -79,7 +87,7 @@
             /* Menjaga garis di tengah */
             width: 0;
             /* Menentukan panjang garis bawah */
-            height: 5px;
+            height: 3px;
             border-radius: 10px;
             background-color: #F0B33C;
             /* Warna garis bawah */
@@ -94,8 +102,12 @@
 
         /* Menambahkan gaya khusus pada item yang aktif */
         .navbar-nav .nav-item a.active {
-            font-weight: bold;
             color: #000;
+            /* Mengubah warna saat link aktif */
+        }
+
+        .navbar-nav .nav-item.home a.active {
+            color: #000000A6;
             /* Mengubah warna saat link aktif */
         }
 
@@ -120,7 +132,7 @@
                     <h3 class="text-warning">
                         Coffee And Space
                     </h3>
-                    <h1 class="display-3 mb-3" style="color:#1C403E;   font-weight: 900;">
+                    <h1 class="display-3 mb-3" style="color:#1C403E;   font-weight: 800;">
                         Kopi Segar Temani Nongkrong-mu.
                     </h1>
                     <h5 class="mb-4" style="color:#1C403E">
