@@ -16,8 +16,29 @@
         }
 
         body::-webkit-scrollbar {
-            display: none;
-            /* Hilangkan scrollbar di Chrome, Edge, dan Safari */
+            /*display: none;*/
+            width: 0.5vw;
+        }
+
+        body::-webkit-scrollbar-track {
+            /*display: none;*/
+            background-color: #1C403E;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            /*display: none;*/
+            background-color: #F0B33C;
+            border-radius: 15px;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            /*display: none;*/
+            background-color: rgb(190, 143, 48);
+        }
+
+        body::-webkit-scrollbar-button {
+            /*display: none;*/
+            background-color: #F0B33C;
         }
 
         ::selection {
@@ -119,6 +140,34 @@
         .navbar-nav .nav-item.home a::after {
             width: 0;
             /* Menghilangkan garis bawah pada "Home" */
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            /* Geser ke luar layar */
+            width: 250px;
+            height: 100%;
+            background-color: #fff;
+            transition: right 0.3s ease-in-out;
+            z-index: 1050;
+            /* Pastikan berada di atas elemen lainnya */
+        }
+
+        .sidebar.show {
+            right: 0;
+            /* Tampilkan sidebar */
+        }
+
+        .nav-item .nav-link {
+            display: block;
+            width: 100%;
+            /* Memenuhi lebar li */
+            height: 100%;
+            /* Opsional jika ingin memenuhi tinggi */
+            text-align: center;
+            /* Pusatkan teks secara horizontal */
         }
     </style>
 </head>
@@ -338,6 +387,15 @@
 
             // Jalankan fungsi pertama kali untuk memastikan status aktif benar
             setActiveLink();
+        });
+    </script>
+    <script>
+        document.getElementById("sidebarToggle").addEventListener("click", function() {
+            document.getElementById("sidebar").classList.toggle("show");
+        });
+
+        document.getElementById("sidebarClose").addEventListener("click", function() {
+            document.getElementById("sidebar").classList.remove("show");
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

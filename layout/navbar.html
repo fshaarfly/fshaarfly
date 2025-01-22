@@ -14,27 +14,22 @@
       />
     </a>
 
-    <!-- Navbar Toggler (untuk mobile view) -->
     <button
-      class="navbar-toggler"
+      class="navbar-toggler border-0 ms-auto"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+      id="sidebarToggle"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Navbar Content -->
     <div
-      class="collapse navbar-collapse d-flex justify-content-center"
+      class="collapse navbar-collapse justify-content-center"
       id="navbarSupportedContent"
     >
-      <ul class="navbar-nav mb-2 mb-lg-0">
+      <ul class="navbar-nav mb-2 mb-lg-0 text-center">
         <li class="nav-item home">
-          <a class="nav-link fw-normal" href="#home" draggable="false">Home</a>
+          <a class="nav-link fw-normal active" href="#home" draggable="false"
+            >Home</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link fw-normal" href="#tentang" draggable="false"
@@ -55,7 +50,36 @@
           >
         </li>
       </ul>
-      <div class="active-indicator"></div>
     </div>
   </div>
 </nav>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <button class="btn-close p-2" id="sidebarClose"></button>
+  </div>
+  <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+    <li class="nav-item home">
+      <a class="nav-link fw-normal active py-3" href="#home" draggable="false"
+        >Home</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link fw-normal py-3" href="#tentang" draggable="false"
+        >Tentang</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link fw-normal py-3" href="#menu" draggable="false">Menu</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link fw-normal py-3" href="#ulasan" draggable="false"
+        >Ulasan</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link fw-normal py-3" href="#pesan" draggable="false"
+        >Pesan</a
+      >
+    </li>
+  </ul>
+</div>
