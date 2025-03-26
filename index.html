@@ -142,7 +142,7 @@
         height: 2.7rem;
         background-color: transparent;
         padding: 0.65rem;
-        border: 4px solid #eae5df;
+        border: 4px solid #849571;
         border-radius: 100px;
         position: relative;
       }
@@ -154,7 +154,7 @@
         height: 1rem;
         aspect-ratio: 1;
         border-radius: inherit;
-        background-color: #eae5df;
+        background-color: #849571;
         animation: scrolling 1.2s cubic-bezier(0.455, 0.03, 0.515, 0.955)
           infinite;
       }
@@ -172,7 +172,7 @@
       }
 
       .scroll p {
-        color: #eae5df;
+        color: #849571;
         font-size: large;
       }
 
@@ -312,7 +312,7 @@
         }
       }
 
-      #about {
+      #about , #education {
         background-color: #f4f4f4;
       }
     </style>
@@ -491,7 +491,15 @@
                     ><i class="fa-brands fa-linkedin me-2"></i>fshaarfly</a
                   >
                 </div>
-              </div>
+                <div class="col-auto">
+                    <a
+                      class="text-decoration-none"
+                      style="color: #1b1b1b"
+                      href="https://www.instagram.com/fshaarfly/"
+                      target="_blank"
+                      ><i class="fa-brands fa-square-instagram me-2"></i>fshaarfly</a
+                    >
+                  </div>
               <p class="mb-0">
                 <i class="fa-solid fa-location-dot me-2"></i>Batam kota,
                 Kepulauan Riau, Indonesia.
@@ -505,47 +513,24 @@
         id="education"
       >
         <div class="container px-5 pt-sm-0">
-          <div class="row gx-5">
+          <div class="row">
             <div
-              class="col-xxl-6 d-flex align-items-center justify-content-center text-center"
-            >
-              <h1 style="color: #1b1b1b; font-weight: bolder">ABOUT</h1>
+              class="col-xxl-6 d-flex align-items-center" data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
+            <div class="row">
+              <p class="m-0 fw-bold">2021-2024</p>
+              <h2 class="m-0">Electrical Engineering</h2>
+              <p><a class="text-decoration-none" style="color: #1b1b1b" href="https://smkn1bintan.sch.id/" target="_blank">SMK N 1 Bintan Utara</a></p>
+
+              <p class="m-0 fw-bold">2024</p>
+              <h2 class="m-0">Software Engineering</h2>
+              <p><a class="text-decoration-none" style="color: #1b1b1b" href="https://www.polibatam.ac.id/" target="_blank">Politeknik Negeri Batam</a></p>
+        </div>
             </div>
-            <div class="col-xxl-6 text-justify">
-              <h4 class="lh-base pb-3" style="color: #1b1b1b">
-                <span class="about"></span>
-              </h4>
-              <div class="row">
-                <div class="col-auto">
-                  <p>
-                    <i class="fa-solid fa-envelope me-2"></i
-                    >fasha.arrafly@gmail.com
-                  </p>
-                </div>
-                <div class="col-auto">
-                  <a
-                    class="text-decoration-none"
-                    style="color: #1b1b1b"
-                    href="https://github.com/fshaarfly/"
-                    target="_blank"
-                    ><i class="fa-brands fa-square-github me-2"></i>fshaarfly</a
-                  >
-                </div>
-                <div class="col-auto">
-                  <a
-                    class="text-decoration-none"
-                    style="color: #1b1b1b"
-                    href="https://www.linkedin.com/in/fshaarfly/"
-                    target="_blank"
-                    ><i class="fa-brands fa-linkedin me-2"></i>fshaarfly</a
-                  >
-                </div>
-              </div>
-              <p class="mb-0">
-                <i class="fa-solid fa-location-dot me-2"></i>Batam kota,
-                Kepulauan Riau, Indonesia.
-              </p>
-            </div>
+            <div
+            class="col-xxl-6 d-flex align-items-center justify-content-center text-center" data-aos="fade-up" data-aos-duration="1200" data-aos-anchor-placement="bottom-bottom"
+          >
+            <h1 style="color: #1b1b1b; font-weight: bolder">EDUCATION</h1>
+          </div>
           </div>
         </div>
       </section>
@@ -553,7 +538,7 @@
         class="scroll position-fixed bottom-0 start-50 translate-middle-x d-flex align-items-center gap-2 mb-3"
       >
         <p class="mb-0">Scroll</p>
-        <a href="#about" class="scroll-down-btn" aria-label="Scroll Down"></a>
+        <p class="scroll-down-btn" aria-label="Scroll Down"></p>
         <p class="mb-0">Down</p>
       </div>
     </div>
@@ -664,33 +649,36 @@
       });
     </script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        let aboutSection = document.getElementById("about");
-        let hasTypedRun = false; // Agar tidak dijalankan berkali-kali
-
-        let observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting && !hasTypedRun) {
-                hasTypedRun = true; // Set agar tidak berulang
-                var typed = new Typed(".about", {
-                  strings: [
-                    "My name is <strong>Fasha Ar-Rafly</strong>, an 18-years-old passionate <strong>web developer</strong> from the vibrant city of Batam. I am currently in my 2nd semester of a Diploma 4 program in Software Engineering at Politeknik Negeri Batam, where I am honing my skills and creativity to contribute to the ever-evolving world of technology.",
-                  ],
-                  typeSpeed: 5,
-                });
-              }
-            });
-          },
-          {
-            threshold: 0.5,
-          }
-        ); // 50% bagian about harus terlihat
-
-        observer.observe(aboutSection);
-      });
-    </script>
+        document.addEventListener("DOMContentLoaded", function () {
+          let aboutSection = document.getElementById("about");
+          let hasTypedRun = false; // Agar tidak dijalankan berkali-kali
+  
+          let observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting && !hasTypedRun) {
+                  hasTypedRun = true; // Set agar tidak berulang
+                  var typed = new Typed(".about", {
+                    strings: [
+                      "My name is <strong>Fasha Ar-Rafly</strong>, an 18-years-old passionate <strong>web developer</strong> from the vibrant city of Batam. I am currently in my 2nd semester of a Diploma 4 program in Software Engineering at Politeknik Negeri Batam, where I am honing my skills and creativity to contribute to the ever-evolving world of technology.",
+                    ],
+                    typeSpeed: 5,
+                  });
+                }
+              });
+            },
+            {
+              threshold: 0.5,
+            }
+          ); // 50% bagian about harus terlihat
+  
+          observer.observe(aboutSection);
+        });
+      </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+          AOS.init();
+      </script>
   </body>
 </html>
