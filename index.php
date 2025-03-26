@@ -4,447 +4,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sambatan</title>
+    <title>fshaarfly | Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="icon" type="image/x-icon" href="assets/sambatanlogo.png">
+    <link rel="icon" type="image/x-icon" href="assets\icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
         html,
         body {
             scroll-behavior: smooth;
+            background-color: #1d1d1d;
+            overflow-x: hidden;
         }
 
         body::-webkit-scrollbar {
-            /*display: none;*/
-            width: 0.5vw;
-        }
-
-        body::-webkit-scrollbar-track {
-            /*display: none;*/
-            background-color: #1C403E;
-        }
-
-        body::-webkit-scrollbar-thumb {
-            /*display: none;*/
-            background-color: #F0B33C;
-            border-radius: 15px;
-        }
-
-        body::-webkit-scrollbar-thumb:hover {
-            /*display: none;*/
-            background-color: rgb(190, 143, 48);
-        }
-
-        body::-webkit-scrollbar-button {
-            /*display: none;*/
-            background-color: #F0B33C;
+            display: none;
         }
 
         ::selection {
-            color: #fff;
-            background: #1C403E;
+            color: #eae5df;
+            background: #849571;
         }
 
-        /* Navbar default style */
+
         .navbar {
             transition: background-color 0.3s ease;
         }
 
-        /* Navbar scrolled style */
-        .navbar.scrolled {
-            background-color: white !important;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+        /* .navbar.scrolled {
+            background-color: #1d1d1d !important;
+        } */
 
-        /* Button styling */
-        .butnn {
-            color: #fff;
-            background-color: #1C403E;
-            text-decoration: none;
-            border-radius: 15px;
-            border: 2px solid #1C403E;
-            transition: ease 0.3s;
-        }
-
-        .butnn:hover {
-            color: #fff;
-            background-color: #F0B33C;
-            border: 2px solid #F0B33C;
-        }
-
-        #home {
-            background-image: url("assets/background.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Style dasar untuk navbar */
         .navbar-nav .nav-item {
             position: relative;
+
         }
 
-        /* Garis bawah yang akan bergerak */
+        .nav-link {
+            color: #849571;
+            font-size: large;
+
+        }
+
+
         .navbar-nav .nav-item a {
             position: relative;
             display: inline-block;
             text-decoration: none;
             padding-bottom: 5px;
+
         }
 
         .navbar-nav .nav-item a:hover {
-            color: #F0B33C;
+            color: #eae5df
         }
 
         .navbar-nav .nav-item a:active {
-            color: #F0B33C;
+            color: #849571;
+
         }
 
-        /* Garis bawah yang muncul di bawah link ketika aktif */
         .navbar-nav .nav-item a::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            /* Menjaga garis di tengah */
             width: 0;
-            /* Menentukan panjang garis bawah */
             height: 3px;
             border-radius: 10px;
-            background-color: #F0B33C;
-            /* Warna garis bawah */
+            background-color: #849571;
             transition: width 0.3s ease;
         }
 
-        /* Menambahkan efek garis bawah hanya saat link memiliki kelas 'active' */
         .navbar-nav .nav-item a.active::after {
             width: 50%;
-            /* Menentukan panjang garis bawah saat aktif */
         }
 
-        /* Menambahkan gaya khusus pada item yang aktif */
         .navbar-nav .nav-item a.active {
             color: #000;
-            /* Mengubah warna saat link aktif */
         }
 
         .navbar-nav .nav-item.home a.active {
-            color: #000000A6;
-            /* Mengubah warna saat link aktif */
+            color: #849571;
+
         }
 
         .navbar-nav .nav-item.home a::after {
             width: 0;
-            /* Menghilangkan garis bawah pada "Home" */
         }
 
         .sidebar {
             position: fixed;
             top: 0;
             right: -250px;
-            /* Geser ke luar layar */
             width: 250px;
             height: 100%;
-            background-color: #fff;
+            background-color: #eae5df;
             transition: right 0.3s ease-in-out;
             z-index: 1050;
-            /* Pastikan berada di atas elemen lainnya */
+
         }
 
         .sidebar.show {
             right: 0;
-            /* Tampilkan sidebar */
+
         }
 
         .nav-item .nav-link {
             display: block;
             width: 100%;
-            /* Memenuhi lebar li */
             height: 100%;
-            /* Opsional jika ingin memenuhi tinggi */
             text-align: center;
-            /* Pusatkan teks secara horizontal */
         }
 
-        .cup {
+        .sidebar {
+            background-color: rgb(24, 24, 24);
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("assets/noise.png");
+            background-repeat: repeat;
+            background-position: center;
+            z-index: -1;
+            opacity: 1%;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        .scroll-down-btn {
+            display: inline-flex;
+            justify-content: center;
+            width: 1rem;
+            height: 2.7rem;
+            background-color: transparent;
+            padding: 0.65rem;
+            border: 4px solid #eae5df;
+            border-radius: 100px;
             position: relative;
-            width: 220px;
-            height: 180px;
-            border: 8px solid #ffefdb;
-            box-shadow: 0 0 0 12px #352a22;
-            border-radius: 10px 10px 60px 75px;
-            background: url("../images/coffee.png");
-            background-repeat: repeat-x;
-            background-position: 0 130px;
-            animation: filling 10s infinite;
         }
 
-        @keyframes filling {
-
-            0%,
-            100% {
-                background-position: 0 130px;
-            }
-
-            50% {
-                background-position: 600px -70px;
-            }
-        }
-
-        .cup .cup-handle {
+        .scroll-down-btn::after {
             position: absolute;
-            top: 10px;
-            right: -74px;
-            width: 65px;
-            height: 120px;
-            border: 12px solid #352a22;
-            border-radius: 20px 10px 50px 20px;
+            content: "";
+            width: 0.5rem;
+            height: 1rem;
+            aspect-ratio: 1;
+            border-radius: inherit;
+            background-color: #eae5df;
+            animation: scrolling 1.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
         }
 
-        .cup .steam {
-            position: absolute;
-            border-radius: 10px 2px;
-            width: 8px;
-            animation: steaming 2s infinite;
-        }
-
-        @keyframes steaming {
-
-            0%,
-            100% {
+        @keyframes scrolling {
+            0% {
                 opacity: 0;
-            }
-
-            50% {
-                opacity: 1;
-                filter: blur(0.8px);
                 transform: translateY(-10px);
             }
+
+            100% {
+                opacity: 1;
+                transform: translateY(5px);
+            }
         }
 
-        .cup .steam:nth-child(1) {
-            top: -70px;
-            left: 65px;
-            height: 30px;
-            background: #8e5a3423;
-            animation-delay: 0.2s;
+        .scroll p {
+            color: #eae5df;
+            font-size: large;
         }
 
-        .cup .steam:nth-child(2) {
-            top: -120px;
-            left: 95px;
-            height: 50px;
-            background: #8e5a3454;
-            animation-delay: 0.6s;
+        .bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            width: 200%;
+            height: 200vh;
+            background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+            background-repeat: repeat;
+            animation: bg-animation .2s infinite;
+            opacity: .9;
+            visibility: visible;
+            z-index: 9999;
+            pointer-events: none;
         }
 
-        .cup .steam:nth-child(3) {
-            top: -90px;
-            left: 125px;
-            height: 40px;
-            background: #8e5a3433;
-            animation-delay: 1s;
+        @keyframes bg-animation {
+            0% {
+                transform: translate(0, 0)
+            }
+
+            10% {
+                transform: translate(-5%, -5%)
+            }
+
+            20% {
+                transform: translate(-10%, 5%)
+            }
+
+            30% {
+                transform: translate(5%, -10%)
+            }
+
+            40% {
+                transform: translate(-5%, 15%)
+            }
+
+            50% {
+                transform: translate(-10%, 5%)
+            }
+
+            60% {
+                transform: translate(15%, 0)
+            }
+
+            70% {
+                transform: translate(0, 10%)
+            }
+
+            80% {
+                transform: translate(-15%, 0)
+            }
+
+            90% {
+                transform: translate(10%, 5%)
+            }
+
+            100% {
+                transform: translate(5%, 0)
+            }
         }
 
-        /* Gunakan visibility dan opacity untuk menyembunyikan konten tanpa menghentikan pemuatan */
-        #main-content {
-            visibility: hidden;
-            /* Menyembunyikan konten utama selama preloader */
-            opacity: 0;
-            transition: opacity 1.5s ease;
-            /* Membuat transisi halus saat menampilkan konten */
-        }
-
-
-        .preloader {
-            display: block;
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f4f4f4;
             display: flex;
-            justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            justify-content: center;
+            z-index: 9998;
+            transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        #loading-text {
+            font-size: 25px;
+            color: #000;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .loading-content dotlottie-player {
+            opacity: 0;
+            /* Mulai dari transparan */
+            animation: fadeIn 0.1s ease-out forwards;
+            /* Animasi muncul */
+            animation-delay: 0.3s;
+            /* Delay agar smooth */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                /* Efek naik sedikit */
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 500%;
+            /* Default untuk desktop */
+        }
+
+        @media (max-width: 768px) {
+
+            /* Tablet & Mobile */
+            h1 {
+                font-size: 300%;
+                /* Ukuran lebih kecil di layar kecil */
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* HP kecil */
+            h1 {
+                font-size: 200%;
+                /* Lebih kecil lagi di layar sangat kecil */
+            }
+        }
+
+        #about {
+            background-color: #f4f4f4;
         }
     </style>
 </head>
 
-<body data-aos-easing="ease-out" data-aos-delay="0">
-    <div class="preloader" id="preloader">
-        <div class="loader">
-            <div class="cup">
-                <span class="steam"></span>
-                <span class="steam"></span>
-                <span class="steam"></span>
-                <div class="cup-handle"></div>
-            </div>
-        </div>
+<body>
+    <div id="preloader">
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+        <dotlottie-player src="/assets/rocket.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+        <p id="loading-text">0%</p>
     </div>
-
-    <div class="main-content" id="main-content">
+    <div class="main" id="main">
         <?php
         include("layout/navbar.html");
         ?>
         <section class="d-flex align-items-center justify-content-center vh-100" id="home">
             <div class="container px-5 pt-sm-0">
                 <div class="row gx-5 align-items-center">
-                    <!-- Kolom teks -->
-                    <div class="col-xxl-7 col-lg-6 text-center text-lg-start" data-aos="fade-up"
-                        data-aos-duration="1000"
-                        data-aos-anchor-placement="top-bottom">
-                        <h3 class="text-warning">
-                            Coffee And Space
-                        </h3>
-                        <h1 class="display-3 mb-3" style="color:#1C403E;   font-weight: 800;">
-                            Kopi Segar Temani Nongkrong-mu.
+                    <div class="col-xxl-12 text-center">
+                        <h1 style="color: #eae5df; font-weight: bolder;">
+                            <span class="welcome"></span>
                         </h1>
-                        <h5 class="mb-4" style="color:#1C403E">
-                            Berakit kehulu, Berenang ketepian,
-                            <br>Bekawan dahulu, <img src="assets/sambatan.png" class="px-1 mb-2" style="width:125px; vertical-align: middle;" draggable="false"> kemudian.
-                        </h5>
-
-                        <div class="d-grid gap-3 d-sm-flex justify-content-center justify-content-lg-start">
-                            <a class="butnn btn-primary btn-lg px-5 py-3 me-sm-3 fs-7 fw-semibold" href="#" draggable="false">Pesan Sekarang</a>
-                        </div>
-                    </div>
-                    <!-- Kolom gambar -->
-                    <div class="col-xxl-5 col-lg-6 d-flex justify-content-center mt-5 mt-lg-0 d-none d-lg-block" data-aos="fade-up"
-                        data-aos-duration="1200"
-                        data-aos-anchor-placement="top-bottom">
-                        <img class="img-fluid" src="assets/kopi.png" alt="kopi" draggable="false" />
                     </div>
                 </div>
             </div>
         </section>
-        <section class="d-flex align-items-center justify-content-center vh-100" id="tentang">
+        <section class="d-flex align-items-center justify-content-center vh-100" id="about">
             <div class="container px-5 pt-sm-0">
-                <div class="row gx-5 align-items-center">
-                    <!-- Kolom teks -->
-                    <div class="col-xxl-7 col-lg-6 text-center text-lg-start" data-aos="fade-up"
-                        data-aos-duration="1000"
-                        data-aos-anchor-placement="top-bottom">
-                        <h3 class="text-warning">
-                            Coffee And Space
-                        </h3>
-                        <h1 class="display-3 mb-3" style="color:#1C403E;   font-weight: 800;">
-                            Kopi Segar Temani Nongkrong-mu.
-                        </h1>
-                        <h5 class="mb-4" style="color:#1C403E">
-                            Berakit kehulu, Berenang ketepian,
-                            <br>Bekawan dahulu, <img src="assets/sambatan.png" class="px-1 mb-1" style="width:110px; vertical-align: middle;"> kemudian.
-                        </h5>
-
-                        <div class="d-grid gap-3 d-sm-flex justify-content-center justify-content-lg-start">
-                            <a class="butnn btn-primary btn-lg px-5 py-3 me-sm-3 fs-7 fw-semibold" href="#" draggable="false">Pesan Sekarang</a>
-                        </div>
+                <div class="row gx-5">
+                    <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center">
+                        <h1 style="color: #1B1B1B; font-weight: bolder;">ABOUT</h1>
                     </div>
-                    <!-- Kolom gambar -->
-                    <div class="col-xxl-5 col-lg-6 d-flex justify-content-center mt-5 mt-lg-0 d-none d-lg-block" data-aos="fade-up"
-                        data-aos-duration="1200"
-                        data-aos-anchor-placement="top-bottom">
-                        <img class="img-fluid" src="assets/kopi.png" alt="kopi" draggable="false" />
+                    <div class="col-xxl-6 text-justify">
+                        <h4 class="lh-base pb-3" style="color: #1B1B1B;"><span class="about"></span></h4>
+                        <div class="row">
+                            <div class="col-auto">
+                                <p><i class="fa-solid fa-envelope me-2"></i>fasha.arrafly@gmail.com</p>
+                            </div>
+                            <div class="col-auto">
+                                <a class="text-decoration-none" style="color:#1b1b1b;" href="https://github.com/fshaarfly/" target="_blank"><i class="fa-brands fa-square-github me-2"></i>fshaarfly</a>
+                            </div>
+                            <div class="col-auto">
+                                <a class="text-decoration-none" style="color:#1b1b1b;" href="https://www.linkedin.com/in/fshaarfly/" target="_blank"><i class="fa-brands fa-linkedin me-2"></i>fshaarfly</a>
+                            </div>
+                        </div>
+                        <p class="mb-0"><i class="fa-solid fa-location-dot me-2"></i>Batam kota, Kepulauan Riau, Indonesia.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="d-flex align-items-center justify-content-center vh-100" id="menu">
+        <section class="d-flex align-items-center justify-content-center vh-100" id="education">
             <div class="container px-5 pt-sm-0">
-                <div class="row gx-5 align-items-center">
-                    <!-- Kolom teks -->
-                    <div class="col-xxl-7 col-lg-6 text-center text-lg-start" data-aos="fade-up"
-                        data-aos-duration="1000"
-                        data-aos-anchor-placement="top-bottom">
-                        <h3 class="text-warning">
-                            Coffee And Space
-                        </h3>
-                        <h1 class="display-3 mb-3" style="color:#1C403E;   font-weight: 800;">
-                            Kopi Segar Temani Nongkrong-mu.
-                        </h1>
-                        <h5 class="mb-4" style="color:#1C403E">
-                            Berakit kehulu, Berenang ketepian,
-                            <br>Bekawan dahulu, <img src="assets/sambatan.png" class="px-1 mb-1" style="width:110px; vertical-align: middle;"> kemudian.
-                        </h5>
-
-                        <div class="d-grid gap-3 d-sm-flex justify-content-center justify-content-lg-start">
-                            <a class="butnn btn-primary btn-lg px-5 py-3 me-sm-3 fs-7 fw-semibold" href="#" draggable="false">Pesan Sekarang</a>
-                        </div>
+                <div class="row gx-5">
+                    <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center">
+                        <h1 style="color: #1B1B1B; font-weight: bolder;">ABOUT</h1>
                     </div>
-                    <!-- Kolom gambar -->
-                    <div class="col-xxl-5 col-lg-6 d-flex justify-content-center mt-5 mt-lg-0 d-none d-lg-block" data-aos="fade-up"
-                        data-aos-duration="1200"
-                        data-aos-anchor-placement="top-bottom">
-                        <img class="img-fluid" src="assets/kopi.png" alt="kopi" draggable="false" />
+                    <div class="col-xxl-6 text-justify">
+                        <h4 class="lh-base pb-3" style="color: #1B1B1B;"><span class="about"></span></h4>
+                        <div class="row">
+                            <div class="col-auto">
+                                <p><i class="fa-solid fa-envelope me-2"></i>fasha.arrafly@gmail.com</p>
+                            </div>
+                            <div class="col-auto">
+                                <a class="text-decoration-none" style="color:#1b1b1b;" href="https://github.com/fshaarfly/" target="_blank"><i class="fa-brands fa-square-github me-2"></i>fshaarfly</a>
+                            </div>
+                            <div class="col-auto">
+                                <a class="text-decoration-none" style="color:#1b1b1b;" href="https://www.linkedin.com/in/fshaarfly/" target="_blank"><i class="fa-brands fa-linkedin me-2"></i>fshaarfly</a>
+                            </div>
+                        </div>
+                        <p class="mb-0"><i class="fa-solid fa-location-dot me-2"></i>Batam kota, Kepulauan Riau, Indonesia.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="d-flex align-items-center justify-content-center vh-100" id="ulasan">
-            <div class="container px-5 pt-sm-0">
-                <div class="row gx-5 align-items-center">
-                    <!-- Kolom teks -->
-                    <div class="col-xxl-7 col-lg-6 text-center text-lg-start" data-aos="fade-up"
-                        data-aos-duration="1000"
-                        data-aos-anchor-placement="top-bottom">
-                        <h3 class="text-warning">
-                            Coffee And Space
-                        </h3>
-                        <h1 class="display-3 mb-3" style="color:#1C403E;   font-weight: 800;">
-                            Kopi Segar Temani Nongkrong-mu.
-                        </h1>
-                        <h5 class="mb-4" style="color:#1C403E">
-                            Berakit kehulu, Berenang ketepian,
-                            <br>Bekawan dahulu, <img src="assets/sambatan.png" class="px-1 mb-1" style="width:110px; vertical-align: middle;"> kemudian.
-                        </h5>
+        <div class="scroll position-fixed bottom-0 start-50 translate-middle-x d-flex align-items-center gap-2 mb-3">
+            <p class="mb-0">Scroll</p>
+            <a href="#about" class="scroll-down-btn" aria-label="Scroll Down"></a>
+            <p class="mb-0">Down</p>
+        </div>
 
-                        <div class="d-grid gap-3 d-sm-flex justify-content-center justify-content-lg-start">
-                            <a class="butnn btn-primary btn-lg px-5 py-3 me-sm-3 fs-7 fw-semibold" href="#" draggable="false">Pesan Sekarang</a>
-                        </div>
-                    </div>
-                    <!-- Kolom gambar -->
-                    <div class="col-xxl-5 col-lg-6 d-flex justify-content-center mt-5 mt-lg-0 d-none d-lg-block" data-aos="fade-up"
-                        data-aos-duration="1200"
-                        data-aos-anchor-placement="top-bottom">
-                        <img class="img-fluid" src="assets/kopi.png" alt="kopi" draggable="false" />
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="d-flex align-items-center justify-content-center vh-100" id="pesan">
-            <div class="container px-5 pt-sm-0">
-                <div class="row gx-5 align-items-center">
-                    <!-- Kolom teks -->
-                    <div class="col-xxl-7 col-lg-6 text-center text-lg-start" data-aos="fade-up"
-                        data-aos-duration="1000"
-                        data-aos-anchor-placement="top-bottom">
-                        <h3 class="text-warning">
-                            Coffee And Space
-                        </h3>
-                        <h1 class="display-3 mb-3" style="color:#1C403E;   font-weight: 800;">
-                            Kopi Segar Temani Nongkrong-mu.
-                        </h1>
-                        <h5 class="mb-4" style="color:#1C403E">
-                            Berakit kehulu, Berenang ketepian,
-                            <br>Bekawan dahulu, <img src="assets/sambatan.png" class="px-1 mb-1" style="width:110px; vertical-align: middle;"> kemudian.
-                        </h5>
-
-                        <div class="d-grid gap-3 d-sm-flex justify-content-center justify-content-lg-start">
-                            <a class="butnn btn-primary btn-lg px-5 py-3 me-sm-3 fs-7 fw-semibold" href="#" draggable="false">Pesan Sekarang</a>
-                        </div>
-                    </div>
-                    <!-- Kolom gambar -->
-                    <div class="col-xxl-5 col-lg-6 d-flex justify-content-center mt-5 mt-lg-0 d-none d-lg-block" data-aos="fade-up"
-                        data-aos-duration="1200"
-                        data-aos-anchor-placement="top-bottom">
-                        <img class="img-fluid" src="assets/kopi.png" alt="kopi" draggable="false" />
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-
-
-
+    <div class="bg"></div>
 
 
     <script>
@@ -501,37 +458,77 @@
         });
     </script>
     <script>
-        document.getElementById("sidebarToggle").addEventListener("click", function() {
+        document.getElementById("sidebarToggle").addEventListener("click", function(event) {
             document.getElementById("sidebar").classList.toggle("show");
+            event.stopPropagation(); // Mencegah event klik menyebar ke document
         });
 
         document.getElementById("sidebarClose").addEventListener("click", function() {
             document.getElementById("sidebar").classList.remove("show");
         });
-    </script>
-    <script>
-        window.addEventListener("load", function() {
-            // Menambahkan setTimeout untuk menunda penghilangan preloader
-            setTimeout(function() {
-                // Menghapus preloader
-                document.getElementById("preloader").style.display = "none";
-                // Menampilkan konten utama setelah preloader dihilangkan
-                const mainContent = document.getElementById("main-content");
-                mainContent.style.visibility = "visible"; // Mengatur visibilitas menjadi visible
-                mainContent.style.opacity = 1; // Membuat konten menjadi terlihat
 
-                // Inisialisasi AOS lagi untuk memastikan elemen-elemen di halaman yang baru dimuat diberi animasi
-                AOS.init({
-                    once: true,
-                    offset: 100,
-                });
-            }, 2000); // 2000ms = 2 detik (bisa disesuaikan sesuai kebutuhan)
+        // Tutup sidebar jika klik di luar sidebar
+        document.addEventListener("click", function(event) {
+            let sidebar = document.getElementById("sidebar");
+            if (!sidebar.contains(event.target) && !event.target.matches("#sidebarToggle")) {
+                sidebar.classList.remove("show");
+            }
         });
     </script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let progress = 0;
+            let loadingText = document.getElementById("loading-text");
 
+            // Simulasi loading menggunakan interval
+            let fakeLoading = setInterval(() => {
+                progress += 5; // Tambah 5% setiap interval
+                loadingText.innerText = progress + "%";
 
+                if (progress >= 100) {
+                    clearInterval(fakeLoading); // Hentikan interval saat mencapai 100%
+                    setTimeout(() => {
+                        document.getElementById("preloader").classList.add("hidden");
+
+                        // Mulai animasi Typed.js setelah preloader selesai
+                        var typed = new Typed('.welcome', {
+                            strings: ['Welcome!,', 'To My Portfolio', 'fshaarfly.'],
+                            typeSpeed: 50,
+                        });
+
+                    }, 1500); // Tambahkan sedikit delay agar smooth
+                }
+            }, 100);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let aboutSection = document.getElementById("about");
+            let hasTypedRun = false; // Agar tidak dijalankan berkali-kali
+
+            let observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasTypedRun) {
+                        hasTypedRun = true; // Set agar tidak berulang
+                        var typed = new Typed('.about', {
+                            strings: [
+                                'My name is <strong>Fasha Ar-Rafly</strong>, an 18-years-old passionate <strong>web developer</strong> from the vibrant city of Batam. I am currently in my 2nd semester of a Diploma 4 program in Software Engineering at Politeknik Negeri Batam, where I am honing my skills and creativity to contribute to the ever-evolving world of technology.'
+                            ],
+                            typeSpeed: 5,
+                        });
+                    }
+                });
+            }, {
+                threshold: 0.5
+            }); // 50% bagian about harus terlihat
+
+            observer.observe(aboutSection);
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </body>
 
 </html>
