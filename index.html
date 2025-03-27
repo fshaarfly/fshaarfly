@@ -54,7 +54,7 @@
       }
 
       .navbar-nav .nav-item a:hover {
-        color: #eae5df;
+        color: #abc093;
       }
 
       .navbar-nav .nav-item a:active {
@@ -79,7 +79,7 @@
       }
 
       .navbar-nav .nav-item a.active {
-        color: #000;
+        color: #59644c;
       }
 
       .navbar-nav .nav-item.home a.active {
@@ -312,8 +312,69 @@
         }
       }
 
-      #about , #education {
+      #about, #education, .projects {
         background-color: #f4f4f4;
+      }
+      .image {
+        height: 270px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px 25px 0px 0px;
+    max-width: 100%; /* Mencegah gambar melebihi container */
+}
+@media (max-width: 768px) {
+    .image {
+        height: 270px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+    .col-md-12:first-child {
+        margin-bottom: 20px; /* Atur jarak antar card */
+    }
+}
+
+@media (max-width: 576px) {
+    .image {
+        height: 100px; /* Kurangi lebih kecil lagi di HP kecil */
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    h4{
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 0.85rem;
+    }
+}
+
+      .card{
+        background-color: #f4f4f4;
+        border-radius: 25px 25px 25px 25px;
+        transition: all 0.2s ease-out;
+        height: 100%; /* Buat tinggi card mengikuti container */
+    display: flex;
+    flex-direction: column;
+
+      }
+      .row {
+    display: flex;
+    align-items: stretch;
+}
+      .card:hover{
+        box-shadow: 10px 10px 23px 3px rgba(0,0,0,0.3);
+-webkit-box-shadow: 10px 10px 23px 3px rgba(0,0,0,0.3);
+-moz-box-shadow: 10px 10px 23px 3px rgba(0,0,0,0.3);
+transform: translateY(-4px);
+
+
       }
     </style>
   </head>
@@ -355,7 +416,7 @@
             type="button"
             id="sidebarToggle"
           >
-            <span class="navbar-toggler-icon"></span>
+          <i class="fa-solid fa-bars" style="color: #849571;"></i>
           </button>
           <div
             class="collapse navbar-collapse justify-content-center"
@@ -412,27 +473,32 @@
               class="nav-link fw-normal active py-3"
               href="#home"
               draggable="false"
-              >Home</a
+              >HOME</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-normal py-3" href="#tentang" draggable="false"
-              >Tentang</a
+            <a class="nav-link fw-normal py-3" href="#about" draggable="false"
+              >ABOUT</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-normal py-3" href="#menu" draggable="false"
-              >Menu</a
+            <a class="nav-link fw-normal py-3" href="#education" draggable="false"
+              >EDUCATION</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-normal py-3" href="#ulasan" draggable="false"
-              >Ulasan</a
+            <a class="nav-link fw-normal py-3" href="#projects" draggable="false"
+              >PROJECTS</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-normal py-3" href="#pesan" draggable="false"
-              >Pesan</a
+            <a class="nav-link fw-normal py-3" href="#skills" draggable="false"
+              >SKILLS</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-normal py-3" href="#contact" draggable="false"
+              >CONTACT</a
             >
           </li>
         </ul>
@@ -468,12 +534,13 @@
               </h4>
               <div class="row">
                 <div class="col-auto">
-                  <p>
+                  <a class="mb-1 text-decoration-none"
+                  style="color: #1b1b1b">
                     <i class="fa-solid fa-envelope me-2"></i
                     >fasha.arrafly@gmail.com
-                  </p>
+                  </a>
                 </div>
-                <div class="col-auto">
+                <div class="col-auto mb-1">
                   <a
                     class="text-decoration-none"
                     style="color: #1b1b1b"
@@ -482,7 +549,7 @@
                     ><i class="fa-brands fa-square-github me-2"></i>fshaarfly</a
                   >
                 </div>
-                <div class="col-auto">
+                <div class="col-auto mb-1">
                   <a
                     class="text-decoration-none"
                     style="color: #1b1b1b"
@@ -491,7 +558,7 @@
                     ><i class="fa-brands fa-linkedin me-2"></i>fshaarfly</a
                   >
                 </div>
-                <div class="col-auto">
+                <div class="col-auto mb-1">
                     <a
                       class="text-decoration-none"
                       style="color: #1b1b1b"
@@ -500,10 +567,11 @@
                       ><i class="fa-brands fa-square-instagram me-2"></i>fshaarfly</a
                     >
                   </div>
-              <p class="mb-0">
+              <a class="mb-0 text-decoration-none"
+              style="color: #1b1b1b">
                 <i class="fa-solid fa-location-dot me-2"></i>Batam kota,
                 Kepulauan Riau, Indonesia.
-              </p>
+              </a>
             </div>
           </div>
         </div>
@@ -534,6 +602,52 @@
           </div>
         </div>
       </section>
+      <section
+      class="d-flex align-items-center justify-content-center vh-100"
+      id="projects"
+    >
+      <div class="container px-5 pt-sm-0">
+          <div
+            class="col-xxl-12 d-flex justify-content-center align-items-center flex-column" data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
+            <h1 style="color: #eae5df; font-weight: bolder">PROJECTS</h1>
+            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/a5fc9e0d-8869-4a92-9fa9-861283c4eac5/fXSUNudl7J.lottie" background="transparent" speed="1" style="width: 200px; height: 200px; transform: rotate(90deg);" loop autoplay></dotlottie-player>
+      </div>
+    </section>
+    <section
+    class="projects d-flex align-items-center justify-content-center vh-100"
+    id="projects"
+  >
+  <div class="container px-5 pt-sm-0">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 d-flex flex-column align-items-start" data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
+            <div class="card">
+                <a class="text-decoration-none" style="cursor: pointer;">
+                    <img src="/assets/aparat.png" class="image img-fluid mb-4">
+                    <h2 style="color: #1b1b1b; font-weight: bolder;" class="mx-3">APARAT</h2>
+                    <p class="lh-base pb-3 text-justify mx-3" style="color: #1b1b1b">
+                        adalah situs web Polibatam yang menyediakan layanan terkait permintaan surat menyurat untuk mahasiswa yang dijalankan oleh pihak akademik Polibatam.
+                    </p>
+                </a>
+            </div>
+        </div>
+    
+        <div class="col-lg-6 col-md-12 d-flex flex-column align-items-start" data-aos="fade-up" data-aos-duration="800" data-aos-anchor-placement="bottom-bottom">
+            <div class="card">
+                <a class="text-decoration-none" style="cursor: pointer;">
+                    <img src="/assets/sambatan.png" class="image img-fluid mb-4">
+                    <h2 style="color: #1b1b1b; font-weight: bolder;" class="mx-3">SAMBATAN</h2>
+                    <p class="lh-base pb-3 text-justify mx-3" style="color: #1b1b1b">
+                        adalah situs web CoffeeShop yang menyediakan layanan pesan minuman dan makanan dimana pengguna juga dapat langsung melakukan pembayaran.
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+  </section>
       <div
         class="scroll position-fixed bottom-0 start-50 translate-middle-x d-flex align-items-center gap-2 mb-3"
       >
@@ -542,6 +656,7 @@
         <p class="mb-0">Down</p>
       </div>
     </div>
+</div>
     <div class="bg"></div>
 
     <script>
