@@ -436,16 +436,16 @@
       transform: translate(-50%, -50%) scale(1.5);
     }
 
-    /* Styling untuk lingkaran */
     .circle {
-      width: 456px;
-      height: 456px;
+      width: clamp(80vw, 10vw, 30vw);
+      height: clamp(80vw, 10vw, 30vw);
+      max-width: 456px;
+      max-height: 456px;
+      min-width: 150px;
+      min-height: 150px;
       background-color: transparent;
       border: 1px solid #1b1b1b;
       border-radius: 50%;
-      font-family: Playfair Display;
-      font-size: small;
-      font-weight: 600;
       transition: 0.4s ease-in-out;
       display: flex;
       justify-content: center;
@@ -455,6 +455,9 @@
 
     .circle h1 {
       color: #1b1b1b;
+      font-family: Playfair Display;
+      font-size: clamp(3rem, 10vw, small);
+      font-weight: 600;
     }
 
     .circle:hover {
@@ -473,7 +476,7 @@
 
     .thankyou {
       background: #f4f4f4;
-      transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+      transition: transform 0.3s, border-radius 0.3s;
       transform: scale(1);
     }
 
@@ -481,6 +484,12 @@
     .thankyou.show {
       transform: scale(0.90);
       border-radius: 20px;
+    }
+
+    .text-responsive {
+      font-weight: bolder;
+      font-size: clamp(2rem, 10vw, 6rem);
+
     }
   </style>
 </head>
@@ -561,7 +570,7 @@
     <section class="d-flex align-items-center justify-content-center vh-100" id="about">
       <div class="container px-5 pt-sm-0">
         <div class="row gx-5">
-          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center" data-aos="fade-up"
+          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center mb-2 mb-xl-0" data-aos="fade-up"
             data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
             <h1 style="font-weight: bolder">ABOUT</h1>
           </div>
@@ -599,6 +608,10 @@
     <section class="d-flex align-items-center justify-content-center vh-100" id="education">
       <div class="container px-5 pt-sm-0">
         <div class="row">
+          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center mb-5 mb-xl-0" data-aos="fade-up"
+            data-aos-duration="1200" data-aos-anchor-placement="bottom-bottom">
+            <h1 style="color: #1b1b1b; font-weight: bolder">EDUCATION</h1>
+          </div>
           <div class="col-xxl-6 d-flex align-items-center" data-aos="fade-up" data-aos-duration="900"
             data-aos-anchor-placement="bottom-bottom">
             <div class="row">
@@ -612,10 +625,6 @@
               <p><a class="text-decoration-none" style="color: #1b1b1b" href="https://www.polibatam.ac.id/"
                   target="_blank">Politeknik Negeri Batam</a></p>
             </div>
-          </div>
-          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center" data-aos="fade-up"
-            data-aos-duration="1200" data-aos-anchor-placement="bottom-bottom">
-            <h1 style="color: #1b1b1b; font-weight: bolder">EDUCATION</h1>
           </div>
         </div>
       </div>
@@ -672,7 +681,7 @@
     <section class="projects d-flex align-items-center justify-content-center vh-100" id="skills">
       <div class="container px-5 pt-sm-0">
         <div class="row gx-5">
-          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center" data-aos="fade-up"
+          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center mb-5 mb-xl-0" data-aos="fade-up"
             data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
             <h1 style="font-weight: bolder">SKILLS</h1>
           </div>
@@ -730,32 +739,45 @@
       <div class="thankyou d-flex align-items-center justify-content-center vh-100 vw-100">
         <div class="container px-5 pt-sm-0">
           <div class="row gx-5">
-            <div class="col-12 d-flex align-items-center justify-content-center text-center" data-aos="fade-up"
-              data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
-              <h1 style="font-weight: bolder; font-size: 96px;" class="me-5 fw-semibold">Thank You!</h1>
+            <div class="col-12 d-flex flex-column flex-md-row align-items-center justify-content-center text-center"
+              data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
+              <h1 class="text-responsive me-0 me-xl-5 mb-5 mb-xl-0 fw-semibold">Thank You!</h1>
               <a href="#home" class="circle d-flex justify-content-center align-items-center text-decoration-none">
                 <h1>HOME</h1>
               </a>
             </div>
           </div>
-    
-          <div class="row mt-5 border-top pt-3">
-            <div class="col-4 d-flex justify-content-start">
-              <a href="https://www.linkedin.com/in/fshaarfly/" class="text-dark me-3"><i class="fa-brands fa-linkedin fs-4"></i></a>
-              <a href="https://github.com/fshaarfly/" class="text-dark me-3"><i class="fa-brands fa-square-github fs-4"></i></a>
-              <a href="mailto:fasha.arrafly@gmail.com" class="text-dark"><i class="fa-solid fa-envelope fs-4"></i></a>
+
+          <div class="row d-flex flex-column flex-md-row mt-5 border-top pt-4 pt-xl-2 text-center text-md-start">
+            <!-- Bagian Icon Social Media -->
+            <div
+              class="col-12 col-md-4 d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-center justify-content-md-start mb-5 mb-md-0">
+              <a href="https://www.linkedin.com/in/fshaarfly/" class="text-dark me-3 pb-2 text-decoration-none">
+                <i class="fa-brands fa-linkedin fs-4"></i> <span class="d-inline d-md-none">Linkedin</span>
+              </a>
+              <a href="https://github.com/fshaarfly/" class="text-dark me-3 pb-2 text-decoration-none">
+                <i class="fa-brands fa-square-github fs-4"></i> <span class="d-inline d-md-none">Github</span>
+              </a>
+              <a href="mailto:fasha.arrafly@gmail.com" class="text-dark me-3 pb-2 text-decoration-none">
+                <i class="fa-solid fa-envelope fs-4"></i> <span class="d-inline d-md-none">fasha.arrafly@gmail.com</span>
+              </a>
             </div>
-            <div class="col-4 d-flex justify-content-center">
-              <span>©️ 2023</span>
+
+            <!-- Bagian Copyright -->
+            <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+              <span>©️ 2025</span>
             </div>
-            <div class="col-4 d-flex justify-content-end">
+
+            <!-- Bagian Made with Love -->
+            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
               <span>Made with ❤️ by Fasha Ar-Rafly</span>
             </div>
           </div>
+
         </div>
       </div>
     </section>
-    
+
     <div class="scroll position-fixed bottom-0 start-50 translate-middle-x d-flex align-items-center gap-2 mb-3">
       <p class="mb-0">Scroll</p>
       <p class="scroll-down-btn" aria-label="Scroll Down"></p>
@@ -860,7 +882,7 @@
 
               // Mulai animasi Typed.js setelah preloader selesai
               var typed = new Typed(".welcome", {
-                strings: ["Welcome to my portfolio!,","I am a Fullstack Web Developer,", "My Name is,", "fshaarfly."],
+                strings: ["Welcome to my portfolio!,", "I am a Fullstack Web Developer,", "My Name is,", "fshaarfly."],
                 typeSpeed: 50,
               });
             }, 1500); // Tambahkan sedikit delay agar smooth
