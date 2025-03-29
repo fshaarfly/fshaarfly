@@ -354,11 +354,6 @@
       p {
         font-size: 0.9rem;
       }
-
-      .col-md-12:first-child {
-        margin-bottom: 20px;
-        /* Atur jarak antar card */
-      }
     }
 
     @media (max-width: 576px) {
@@ -647,7 +642,7 @@
     <div class="projects d-flex align-items-center justify-content-center vh-100">
       <div class="container px-5 pt-sm-0">
         <div class="row">
-          <div class="col-lg-6 col-md-12 d-flex flex-column align-items-start" data-aos="fade-up"
+          <div class="col-lg-6 col-md-12 d-flex flex-column align-items-start mb-4" data-aos="fade-up"
             data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
             <div class="card">
               <a class="text-decoration-none" style="cursor: pointer;">
@@ -661,7 +656,7 @@
             </div>
           </div>
 
-          <div class="col-lg-6 col-md-12 d-flex flex-column align-items-start" data-aos="fade-up"
+          <div class="col-lg-6 col-md-12 d-flex flex-column align-items-start mb-4" data-aos="fade-up"
             data-aos-duration="800" data-aos-anchor-placement="bottom-bottom">
             <div class="card">
               <a class="text-decoration-none" style="cursor: pointer;">
@@ -882,7 +877,7 @@
 
               // Mulai animasi Typed.js setelah preloader selesai
               var typed = new Typed(".welcome", {
-                strings: ["Welcome to my portfolio!,", "I am a Fullstack Web Developer,", "My Name is,", "fshaarfly."],
+                strings: ["Welcome to my portfolio!", "I am a Fullstack Web Developer", "My Name is,", "fshaarfly."],
                 typeSpeed: 50,
               });
             }, 1500); // Tambahkan sedikit delay agar smooth
