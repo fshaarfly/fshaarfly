@@ -24,6 +24,7 @@
       background-color: #1d1d1d;
       overflow-x: hidden;
       font-family: Poppins;
+      cursor: url(assets/arrow-head.png), auto;
     }
 
     body::-webkit-scrollbar {
@@ -408,6 +409,10 @@
       color: #1b1b1b;
     }
 
+    a {
+      cursor: url(assets/hand-pointer.png), pointer;
+    }
+
     /* Custom cursor dengan gambar */
     .custom-cursor {
       width: 1px;
@@ -445,6 +450,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: none;
     }
 
 
@@ -493,7 +499,7 @@
   <div id="preloader">
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <dotlottie-player src="https://lottie.host/35221018-8abe-4585-b6d6-e9291b6843c8/8kcB2r9qIY.lottie"
-      background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+      background="transparent" speed="1" data-aos="zoom-in" data-aos-duration="2000" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
     <p id="loading-text">0%</p>
   </div>
   <div class="main" id="main">
@@ -565,8 +571,8 @@
     <section class="d-flex align-items-center justify-content-center vh-100" id="about">
       <div class="container px-5 pt-sm-0">
         <div class="row gx-5">
-          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center mb-2 mb-xl-0" data-aos="fade-up"
-            data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
+          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center mb-2 mb-xl-0"
+            data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
             <h1 style="font-weight: bolder">ABOUT</h1>
           </div>
           <div class="col-xxl-6 text-justify" data-aos="fade-up" data-aos-duration="1200"
@@ -603,8 +609,8 @@
     <section class="d-flex align-items-center justify-content-center vh-100" id="education">
       <div class="container px-5 pt-sm-0">
         <div class="row">
-          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center mb-5 mb-xl-0" data-aos="fade-up"
-            data-aos-duration="1200" data-aos-anchor-placement="bottom-bottom">
+          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center mb-5 mb-xl-0"
+            data-aos="fade-up" data-aos-duration="1200" data-aos-anchor-placement="bottom-bottom">
             <h1 style="color: #1b1b1b; font-weight: bolder">EDUCATION</h1>
           </div>
           <div class="col-xxl-6 d-flex align-items-center" data-aos="fade-up" data-aos-duration="900"
@@ -645,7 +651,7 @@
           <div class="col-lg-6 col-md-12 d-flex flex-column align-items-start mb-4" data-aos="fade-up"
             data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
             <div class="card">
-              <a class="text-decoration-none" style="cursor: pointer;">
+              <a class="text-decoration-none">
                 <img src="assets/aparat.png" class="image img-fluid mb-4">
                 <h2 style="font-weight: bolder;" class="mx-3">Aparat</h2>
                 <p class="lh-base pb-3 text-justify mx-3">
@@ -659,7 +665,7 @@
           <div class="col-lg-6 col-md-12 d-flex flex-column align-items-start mb-4" data-aos="fade-up"
             data-aos-duration="800" data-aos-anchor-placement="bottom-bottom">
             <div class="card">
-              <a class="text-decoration-none" style="cursor: pointer;">
+              <a class="text-decoration-none">
                 <img src="assets/sambatan.png" class="image img-fluid mb-4">
                 <h2 style="font-weight: bolder;" class="mx-3">Sambatan</h2>
                 <p class="lh-base pb-3 text-justify mx-3">
@@ -676,8 +682,8 @@
     <section class="projects d-flex align-items-center justify-content-center vh-100" id="skills">
       <div class="container px-5 pt-sm-0">
         <div class="row gx-5">
-          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center mb-5 mb-xl-0" data-aos="fade-up"
-            data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
+          <div class="col-xxl-6 d-flex align-items-center justify-content-center text-center mb-5 mb-xl-0"
+            data-aos="fade-up" data-aos-duration="900" data-aos-anchor-placement="bottom-bottom">
             <h1 style="font-weight: bolder">SKILLS</h1>
           </div>
           <div class="col-xxl-6 text-justify" data-aos="fade-up" data-aos-duration="1200"
@@ -754,7 +760,8 @@
                 <i class="fa-brands fa-square-github fs-4"></i> <span class="d-inline d-md-none">Github</span>
               </a>
               <a href="mailto:fasha.arrafly@gmail.com" class="text-dark me-3 pb-2 text-decoration-none">
-                <i class="fa-solid fa-envelope fs-4"></i> <span class="d-inline d-md-none">fasha.arrafly@gmail.com</span>
+                <i class="fa-solid fa-envelope fs-4"></i> <span
+                  class="d-inline d-md-none">fasha.arrafly@gmail.com</span>
               </a>
             </div>
 
@@ -917,9 +924,12 @@
         const cursor = document.querySelector(".custom-cursor");
         const circle = document.querySelector(".circle");
 
+        let isMouseMoving = false;
+
         document.addEventListener("mousemove", (e) => {
           cursor.style.left = `${e.clientX}px`;
           cursor.style.top = `${e.clientY}px`;
+          isMouseMoving = true;
         });
 
         circle.addEventListener("mouseenter", () => {
@@ -932,6 +942,23 @@
           cursor.style.transform = "translate(-50%, -50%) scale(1) rotate(90deg)";
           cursor.style.width = "1px";
           cursor.style.height = "1px";
+          isMouseMoving = false;
+        });
+
+        circle.addEventListener("click", () => {
+          if (isMouseMoving) {
+            cursor.style.transform = "translate(-50%, -50%) scale(1) rotate(90deg)";
+            cursor.style.width = "1px";
+            cursor.style.height = "1px";
+          }
+        });
+
+        document.addEventListener("scroll", () => {
+          if (!isMouseMoving) {
+            cursor.style.transform = "translate(-50%, -50%) scale(1) rotate(90deg)";
+            cursor.style.width = "1px";
+            cursor.style.height = "1px";
+          }
         });
       });
 
